@@ -23,7 +23,7 @@
                     },
                     {
                         "path": "/vlessws", // 必须换成自定义的 PATH
-                        "dest": 1234,
+                        "dest": 80,
                         "xver": 1
                     },
                     {
@@ -81,8 +81,8 @@
             }
         },
         {
-            "port": 1234,
-            "listen": "127.0.0.1",
+            "port": 80,
+            //"listen": "127.0.0.1",
             "protocol": "vless",
             "settings": {
                 "clients": [
@@ -93,6 +93,11 @@
                     }
                 ],
                 "decryption": "none"
+                "fallbacks": [
+                    {
+                        "dest": "www.football4football.com:443" // 或者回落到其它也防探测的代理
+                    }
+                ]
             },
             "streamSettings": {
                 "network": "ws",
