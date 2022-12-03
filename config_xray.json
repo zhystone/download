@@ -22,8 +22,13 @@
                         "xver": 1
                     },
                     {
-                        "path": "/vlessws", // 必须换成自定义的 PATH
+                        "path": "/vlessws80", // 必须换成自定义的 PATH
                         "dest": 80,
+                        "xver": 1
+                    },
+                    {
+                        "path": "/vlessws", // 必须换成自定义的 PATH
+                        "dest": 1234,
                         "xver": 1
                     },
                     {
@@ -87,17 +92,35 @@
             "settings": {
                 "clients": [
                     {
+                        "id": "43f7592d-3dc5-4022-88a0-8d75c9c166f6", // 填写你的 UUID
+                        "level": 0,
+                        "email": "love@a.com"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none",
+                "wsSettings": {
+                    //"acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行
+                    "path": "/vlessws" // 必须换成自定义的 PATH，需要和分流的一致
+                }
+            }
+        },
+        {
+            "port": 1234,
+            "listen": "127.0.0.1",
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
                         "id": "b667c36d-fd75-4854-9fe1-2b1ef802ceab", // 填写你的 UUID
                         "level": 0,
                         "email": "love@a.com"
                     }
                 ],
                 "decryption": "none"
-                "fallbacks": [
-                    {
-                        "dest": "www.football4football.com:443" // 或者回落到其它也防探测的代理
-                    }
-                ]
             },
             "streamSettings": {
                 "network": "ws",
