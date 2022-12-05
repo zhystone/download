@@ -100,7 +100,7 @@
                 "decryption": "none",
                 "fallbacks": [
                     {
-                        "dest": "www.descreen.net:443" // 或者回落到其它也防探测的代理
+                        "dest": "www.descreen.net:80" // 或者回落到其它也防探测的代理
                     }
                 ]
             },
