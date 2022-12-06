@@ -22,11 +22,6 @@
                         "xver": 1
                     },
                     {
-                        "path": "/vlessws80", // 必须换成自定义的 PATH，可用cloudflare flexible mode，必须用80端口
-                        "dest": 80,
-                        "xver": 1
-                    },
-                    {
                         "path": "/vlessws", // 必须换成自定义的 PATH
                         "dest": 1234,
                         "xver": 1
@@ -86,8 +81,8 @@
             }
         },
         {
-            "port": 80,
-            //"listen": "127.0.0.1",  //允许cloudflare访问80端口，所以必须删掉这行
+            "port": 5678,
+            "listen": "127.0.0.1",
             "protocol": "vless",
             "settings": {
                 "clients": [
@@ -97,18 +92,13 @@
                         "email": "love@a.com"
                     }
                 ],
-                "decryption": "none",
-                "fallbacks": [
-                    {
-                        "dest": "www.descreen.net:80" // 或者回落到其它也防探测的代理
-                    }
-                ]
+                "decryption": "none"
             },
             "streamSettings": {
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    //"acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行。用lcoudflare反代WS，也要删掉这行
+                    //"acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行
                     "path": "/vlessws80" // 必须换成自定义的 PATH，需要和分流的一致
                 }
             }
